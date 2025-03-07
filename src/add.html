@@ -3,49 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta empleado/a</title>
+    <title>Alta coche</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>NISSAN</h1>
 	</header>
 	<main>				
 	<ul>
 		<li><a href="index.php">Inicio</a></li>
 		<li><a href="add.html">Alta</a></li>
 	</ul>
-	<h2>Alta empleado/a</h2>
+	<h2>Alta coche</h2>
 <!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php (form action="add.php")
 La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados
 -->
 
 	<form action="add_action.php" method="post">
 		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" placeholder="nombre" required>
+			<label for="name">Modelo</label>
+			<input type="text" name="modelo" id="name" placeholder="modelo" required>
 		</div>
 
 		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" placeholder="apellido" required>
+			<label for="surname">Motor</label>
+			<input type="text" name="motor" id="surname" placeholder="motor" required>
 		</div>
 
 		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" placeholder="edad" required>
+			<label for="age">Anio_fabricacion</label>
+			<input type="date" name="anio_frabicacion" id="age" placeholder="anio_frabicacion" required>
 		</div>
 
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto" required>
+			<label for="job">Fiabilidad</label>
+			<select name="Fiabilidad" id="job" placeholder="puesto" required>
 				<option value="" disabled selected>Seleccione un puesto</option>
-				<option value="Administrativo">Administrativo</option>
-				<option value="Contable">Contable</option>
-				<option value="Dependiente">Dependiente</option>
-				<option value="Gerente">Gerente</option>
-				<option value="Repartidor">Repartidor</option>
+				<option value="Alta">Alta</option>
+				<option value="Baja">Baja</option>
+				<option value="Media">Media</option>
 			</select>	
+		</div>
+		
+		<div>
+			<label for="age">precio</label>
+			<input type="number" name="precio" id="age" placeholder="precio" required>
 		</div>
 
 		<div>
@@ -56,7 +59,7 @@ La página: add.php se encargará de proceder a la inserción del registro en la
 	
 	</main>	
 	<footer>
-	Created by the IES Miguel Herrero team &copy; 2025
+	Created by the Rodrigo Gomez Marin team &copy; 2025
   	</footer>
 </div>
 </body>
