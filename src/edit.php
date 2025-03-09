@@ -8,12 +8,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>NISSAN</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>NISSAN</h1>
 	</header>
 	
 	<main>				
@@ -21,7 +21,7 @@ include_once("config.php");
 		<li><a href="index.php" >Inicio</a></li>
 		<li><a href="add.html" >Alta</a></li>
 	</ul>
-	<h2>Modificación empleado/a</h2>
+	<h2>Modificación coche</h2>
 
 
 <?php
@@ -30,22 +30,23 @@ include_once("config.php");
 /*Obtiene el id del registro del empleado a modificar, idempleado, a partir de su URL. Este tipo de datos se accede utilizando el método: GET*/
 
 //Recoge el id del empleado a modificar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$idempleado = $_GET['idempleado'];
+$id = $_GET['id'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$idempleado = $mysqli->real_escape_string($idempleado);
+$id = $mysqli->real_escape_string($id);
 
 
 //Se selecciona el registro a modificar: select
-$resultado = $mysqli->query("SELECT apellido, nombre, edad, puesto FROM empleados WHERE id = $idempleado");
+$resultado = $mysqli->query("SELECT Modelo, Motor, Anio_fabricacion, Fiabilidad, Precio FROM NISSAN WHERE id = $id");
 
 //Se extrae el registro y lo guarda en el array $fila
 //Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();
 $fila = $resultado->fetch_array();
-$surname = $fila['apellido'];
-$name = $fila['nombre'];
-$age = $fila['edad'];
-$job = $fila['puesto'];
+$Modelo = $fila['Modelo'];
+$Motor = $fila['Motor'];
+$Anio_fabricacion = $fila['Anio_fabricacion'];
+$Fiabilidad = $fila['Fiabilidad'];
+$Precio = $fila['Precio'];
 
 //Se cierra la conexión de base de datos
 $mysqli->close();
@@ -56,41 +57,45 @@ $mysqli->close();
 
 	<form action="edit_action.php" method="post">
 		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" value="<?php echo $name;?>" required>
+			<label for="Modelo">Modelo</label>
+			<input type="text" name="Modelo" id="Modelo" value="<?php echo $Modelo;?>" required>
 		</div>
 
 		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" value="<?php echo $surname;?>" required>
+			<label for="Motor">Motor</label>
+			<input type="text" name="Motor" id="Motor" value="<?php echo $Motor;?>" required>
 		</div>
 
 		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" value="<?php echo $age;?>" required>
+			<label for="Anio_frabicacion">Anio_frabicacion</label>
+			<input type="date" name="Anio_frabicacion" id="Anio_frabicacion" value="<?php echo $Anio_frabicacion;?>" required>
 		</div>
 
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto">
-				<option value="<?php echo $job;?>" selected><?php echo $job;?></option>
-				<option value="Administrativo">Administrativo</option>
-				<option value="Contable">Contable</option>
-				<option value="Dependiente">Dependiente</option>
-				<option value="Gerente">Gerente</option>
-				<option value="Repartidor">Repartidor</option>
-			</select>	
+			<label for="Fiabilidad">Fiabilidad</label>
+			<select name="Fiabilidad" id="Fiabilidad" placeholder="Fiabilidad">
+				<option value="<?php echo $Fiabilidad;?>" selected><?php echo $Fiabilidad;?></option>
+				<option value="Alta">Alta</option>
+				<option value="Media">Media</option>
+				<option value="Baja">Baja</option>
+			
+			</select>
+		</div>
+		
+		<div>
+			<label for="Precio">Precio</label>
+			<input type="number" name="Precio" id="Precio" value="<?php echo $Precio;?>" required>
 		</div>
 
 		<div >
-			<input type="hidden" name="idempleado" value=<?php echo $idempleado;?>>
+			<input type="hidden" name="id" value=<?php echo $id;?>>
 			<input type="submit" name="modifica" value="Guardar">
 			<input type="button" value="Cancelar" onclick="location.href='index.php'">
 		</div>
 	</form>
 	</main>	
 	<footer>
-		Created by the IES Miguel Herrero team &copy; 2024
+		Created by Rodrigo Gomez Marin &copy; 2024
   	</footer>
 </div>
 </body>

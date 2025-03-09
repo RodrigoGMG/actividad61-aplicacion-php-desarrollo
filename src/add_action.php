@@ -8,12 +8,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Alta empleado/a</title>
+	<title>Alta coche</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>NISSAN</h1>
 	</header>
 	<main>
 
@@ -34,10 +34,11 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
-	$name = $mysqli->real_escape_string($_POST['name']);
-	$surname = $mysqli->real_escape_string($_POST['surname']);
-	$age = $mysqli->real_escape_string($_POST['age']);
-	$job = $mysqli->real_escape_string($_POST['job']);
+	$Modelo = $mysqli->real_escape_string($_POST['Modelo']);
+	$Motor = $mysqli->real_escape_string($_POST['Motor']);
+	$Anio_fabricacion = $mysqli->real_escape_string($_POST['Anio_fabricacion']);
+	$Fiabilidad = $mysqli->real_escape_string($_POST['Fiabilidad']);
+	$Precio = $mysqli->real_escape_string($_POST['Precio']);
 
 /*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
 Esta función es usada para crear una cadena SQL legal que se puede usar en una sentencia SQL. 
@@ -47,22 +48,26 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 */
 
 //Se comprueba si existen campos del formulario vacíos
-	if(empty($name) || empty($surname) || empty($age) || empty($job) ) 
+	if(empty($Modelo) || empty($Motor) || empty($Anio_fabricacion) || empty($Fiabilidad) || empty($Precio) ) 
 	{
-		if(empty($name)) {
-			echo "<div>Campo nombre vacío.</div>";
+		if(empty($Modelo)) {
+			echo "<div>Campo Modelo vacío.</div>";
 		}
 
-		if(empty($surname)) {
-			echo "<div>Campo apellido vacío</div>";
+		if(empty($Motor)) {
+			echo "<div>Campo Motor vacío</div>";
 		}
 
-		if(empty($age)) {
-			echo "<div>Campo edad vacío.</div>";
+		if(empty($Anio_fabricacion)) {
+			echo "<div>Campo anio_fabricacion vacío.</div>";
 		}
 
-		if(empty($job)) {
-			echo "<div>Campo puesto vacío.</div>";
+		if(empty($Fiabilidad)) {
+			echo "<div>Campo fiabilidad vacío.</div>";
+		}
+		
+		if(empty($Precio)) {
+			echo "<div>Campo precio vacío.</div>";
 		}
 //Enlace a la página anterior
 		//Se cierra la conexión
@@ -72,7 +77,7 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 	else //Sino existen campos de formulario vacíos se procede al alta del nuevo registro
 	{
 //Se ejecuta una sentencia SQL. Inserta (da de alta) el nuevo registro: insert.
-		$result = $mysqli->query("INSERT INTO empleados (nombre, apellido, edad, puesto) VALUES ('$name', '$surname', '$age', '$job')");	
+		$result = $mysqli->query("INSERT INTO NISSAN (Motor, Fiabilidad, Anio_fabricacion, Fiabilidad, Precio) VALUES ('$Modelo', '$Motor', '$Anio_fabricacion', '$Fiabilidad', '$Precio')");	
 		//Se cierra la conexión
 		$mysqli->close();
 		echo "<div>Registro añadido correctamente...</div>";
