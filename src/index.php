@@ -35,6 +35,7 @@ include_once("config.php");
 			<th>Anio_fabricacion</th>
 			<th>Fiabilidad</th>
 			<th>Precio</th>
+			<th>Accion</th>
 		</tr>
 	</thead>
 	<tbdody>
