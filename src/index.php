@@ -23,7 +23,7 @@ include_once("config.php");
 
 	<main>
 	<ul>
-		<li><a href="index.php">Edicion</a></li>
+		<li><a href="index.php">Inicio</a></li>
 		<li><a href="add.html">No disponible</a></li>
 	</ul>
 	<h2>Nissan disponibles a la venta</h2>
