@@ -68,7 +68,7 @@ $mysqli->close();
 
 		<div>
 			<label for="Anio_frabicacion">Anio_frabicacion</label>
-			<input type="date" name="Anio_frabicacion" id="Anio_frabicacion" value="<?php echo $Anio_frabicacion;?>" required>
+			<input type="text" name="Anio_frabicacion" id="Anio_frabicacion" value="<?php echo $Anio_frabicacion;?>" required>
 		</div>
 
 		<div>
