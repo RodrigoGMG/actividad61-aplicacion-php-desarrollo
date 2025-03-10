@@ -45,7 +45,7 @@ include_once("config.php");
 Cada fila y cada columna de la tabla se corresponde con un registro y campo de la tabla EMPLEADOS.
 */
 
-$resultado = $mysqli->query("SELECT * FROM NISSAN ORDER BY modelo, motor");
+$resultado = $mysqli->query("SELECT * FROM NISSAN ORDER BY Modelo, Motor");
 
 //Cierra la conexión de la BD
 $mysqli->close();
