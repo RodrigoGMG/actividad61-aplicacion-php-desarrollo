@@ -55,11 +55,11 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 		}
 
 		if(empty($Motor)) {
-			echo "<div>Campo Motor vacío</div>";
+			echo "<div>Campo Motor vacío.</div>";
 		}
 
 		if(empty($Anio_fabricacion)) {
-			echo "<div>Campo anio_fabricacion vacío.</div>";
+			echo "<div>Campo Anio_fabricacion vacío.</div>";
 		}
 
 		if(empty($Fiabilidad)) {
@@ -77,7 +77,7 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 	else //Sino existen campos de formulario vacíos se procede al alta del nuevo registro
 	{
 //Se ejecuta una sentencia SQL. Inserta (da de alta) el nuevo registro: insert.
-		$result = $mysqli->query("INSERT INTO NISSAN (Motor, Fiabilidad, Anio_fabricacion, Fiabilidad, Precio) VALUES ('$Modelo', '$Motor', '$Anio_fabricacion', '$Fiabilidad', '$Precio')");	
+		$result = $mysqli->query("INSERT INTO NISSAN (Modelo, Motor, Anio_fabricacion, Fiabilidad, Precio) VALUES ('$Modelo', '$Motor', '$Anio_fabricacion', '$Fiabilidad', '$Precio')");	
 		//Se cierra la conexión
 		$mysqli->close();
 		echo "<div>Registro añadido correctamente...</div>";
